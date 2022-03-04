@@ -1,23 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import {useEffect} from 'react';
+import axios from 'axios';
 
 function App() {
+  useEffect(()=> {
+    axios.get('http://api.openweathermap.org/data/2.5/weather?lat=75.6972&lon=45.4215&appid=c876465f1aa8174a67435e8f65ead6ce')
+      .then(res => console.log("weather forecast data", res));
+  },[]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Weather Forecast</h1>
     </div>
   );
 }
