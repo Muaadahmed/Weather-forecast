@@ -10,8 +10,8 @@ function restructureData(data) {
   const dayForecast = {
     day: formatDate(data.dt), 
     forecast: data.weather[0].description, 
-    temp_min: kelvinToCelcius(data.main.temp_min), 
-    temp_max: kelvinToCelcius(data.main.temp_max)
+    temp_min: kelvinToCelcius(data.temp.min), 
+    temp_max: kelvinToCelcius(data.temp.max)
   };
   return dayForecast;
 }
