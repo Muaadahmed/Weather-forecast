@@ -10,14 +10,13 @@ function App() {
   const [weatherData, setWeatherData] = useState([]);
   useEffect(()=> {
     axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=75.6972&lon=45.4215&exclude=alerts,minutely,hourly&appid=${process.env.React_App_APPID}`)
-    .then(res => console.log("res onecall: ", res));
-      // .then(res => setWeatherData(res.data.daily.map(obj => restructureData(obj))));
-        // formatDate(res.data););
+    // .then(res => console.log("res onecall: ", res));
+      .then(res => setWeatherData(res.data.daily.map(obj => restructureData(obj))));
   },[]);
   return (
     <div className="App">
       <h1>Weather Forecast</h1>
-      {/* <WeatherComponent fiveDayForecast={weatherData}/> */}
+      <WeatherComponent fiveDayForecast={weatherData}/>
     </div>
   );
 }

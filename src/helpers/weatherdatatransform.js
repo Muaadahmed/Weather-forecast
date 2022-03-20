@@ -3,7 +3,8 @@ function formatDate(data) {
   let dtFormat = new Intl.DateTimeFormat('en-US', {
     weekday: 'short'
   });
-  return dtFormat.format(data);
+  const date = new Date(data * 1000);
+  return dtFormat.format(date);
 }
 
 function restructureData(data) {
@@ -11,7 +12,8 @@ function restructureData(data) {
     day: formatDate(data.dt), 
     forecast: data.weather[0].description, 
     temp_min: kelvinToCelcius(data.temp.min), 
-    temp_max: kelvinToCelcius(data.temp.max)
+    temp_max: kelvinToCelcius(data.temp.max),
+    icon: data.weather[0].icon
   };
   return dayForecast;
 }
