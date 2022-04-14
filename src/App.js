@@ -2,7 +2,7 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import WeatherComponent from './Components/WeatherComponent';
-import {formatDate, restructureData} from './helpers/weatherdatatransform';
+import {restructureData} from './helpers/weatherdatatransform';
 
 function App() {
   // Use helpers to transform data into just whats needed
